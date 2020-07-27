@@ -17,6 +17,8 @@
 		43D9E61024CF7AC3003BD62E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43D9E5F824CF7AC3003BD62E /* Assets.xcassets */; };
 		43D9E61B24CF7BAB003BD62E /* NemIDKeycard in Frameworks */ = {isa = PBXBuildFile; productRef = 43D9E61A24CF7BAB003BD62E /* NemIDKeycard */; };
 		43D9E61E24CF7BD3003BD62E /* NemIDKeycard in Frameworks */ = {isa = PBXBuildFile; productRef = 43D9E61D24CF7BD3003BD62E /* NemIDKeycard */; };
+		43D9E62324CF85B8003BD62E /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E61F24CF857C003BD62E /* ExampleData.swift */; };
+		43D9E62424CF85B9003BD62E /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E61F24CF857C003BD62E /* ExampleData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,7 @@
 		43D9E60524CF7AC3003BD62E /* nemid-keycard-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nemid-keycard-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		43D9E60724CF7AC3003BD62E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43D9E60824CF7AC3003BD62E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		43D9E61F24CF857C003BD62E /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 		43D9E5EF24CF7AC2003BD62E = {
 			isa = PBXGroup;
 			children = (
+				43D9E62224CF858C003BD62E /* DevData */,
 				43D9E5F424CF7AC2003BD62E /* Shared */,
 				43D9E5FF24CF7AC3003BD62E /* iOS */,
 				43D9E60624CF7AC3003BD62E /* macOS */,
@@ -104,6 +108,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		43D9E62224CF858C003BD62E /* DevData */ = {
+			isa = PBXGroup;
+			children = (
+				43D9E61F24CF857C003BD62E /* ExampleData.swift */,
+			);
+			path = DevData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +226,7 @@
 			files = (
 				43D9E60B24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				43D9E60924CF7AC3003BD62E /* KeycardApp.swift in Sources */,
+				43D9E62324CF85B8003BD62E /* ExampleData.swift in Sources */,
 				43D9E60D24CF7AC3003BD62E /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +237,7 @@
 			files = (
 				43D9E60C24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				43D9E60A24CF7AC3003BD62E /* KeycardApp.swift in Sources */,
+				43D9E62424CF85B9003BD62E /* ExampleData.swift in Sources */,
 				43D9E60E24CF7AC3003BD62E /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

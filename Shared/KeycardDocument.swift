@@ -1,5 +1,6 @@
 import SwiftUI
 import UniformTypeIdentifiers
+import NemIDKeycard
 
 extension UTType {
 	static var keycards: UTType {
@@ -8,25 +9,27 @@ extension UTType {
 }
 
 struct KeycardDocument: FileDocument {
-	var text: String
+	var identities: [Identity]
 
-	init(text: String = "Hello, world!") {
-		self.text = text
+	init(identities: [Identity] = []) {
+		self.identities = identities
 	}
 
 	static var readableContentTypes: [UTType] { [.keycards] }
 
 	init(fileWrapper: FileWrapper, contentType: UTType) throws {
-		guard let data = fileWrapper.regularFileContents,
-			  let string = String(data: data, encoding: .utf8)
+		let decoder = JSONDecoder()
+		guard let data = fileWrapper.regularFileContents
 		else {
 			throw CocoaError(.fileReadCorruptFile)
 		}
-		text = string
+		identities = try decoder.decode([Identity].self, from: data)
 	}
 
 	func write(to fileWrapper: inout FileWrapper, contentType: UTType) throws {
-		let data = text.data(using: .utf8)!
+		let encoder = JSONEncoder()
+		encoder.outputFormatting = [ .prettyPrinted, .sortedKeys, .withoutEscapingSlashes ]
+		let data = try encoder.encode(identities)
 		fileWrapper = FileWrapper(regularFileWithContents: data)
 	}
 }
