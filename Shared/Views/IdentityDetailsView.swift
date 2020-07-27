@@ -7,7 +7,7 @@ struct IdentityDetailsView: View {
 	var body: some View {
 		VStack(alignment: .leading) {
 			VStack(alignment: .leading) {
-				Text("CPR: \(identity.cpr)")
+				Text("CPR: \(formatCPR(identity.cpr))")
 				Text("Password: \(identity.password)")
 			}
 			.padding([.leading, .trailing])

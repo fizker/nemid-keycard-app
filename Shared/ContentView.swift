@@ -1,12 +1,14 @@
 import SwiftUI
 
+func formatCPR(_ cpr: String) -> String {
+	return "\(cpr.dropLast(4))-\(cpr.dropFirst(6))"
+}
+
 struct ContentView: View {
 	@Binding var document: KeycardDocument
 
 	var body: some View {
-		NavigationView {
-			IdentityListView(identities: document.identities)
-		}
+		IdentityListView(identities: document.identities)
 	}
 }
 

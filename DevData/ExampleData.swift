@@ -2,7 +2,7 @@
 import NemIDKeycard
 
 let exampleIdentities = [
-	Identity(id: 1, name: "User 1", cpr: "123456-7890", password: "foo", keycards: [
+	Identity(id: 1, name: "User 1", cpr: "1234567890", password: "foo", keycards: [
 		Keycard(id: "some id", keys: [
 			"1111": "111156",
 			"2222": "222256",

@@ -8,7 +8,7 @@ struct IdentityListView: View {
 			NavigationLink(destination: IdentityDetailsView(identity: identity)) {
 				VStack(alignment: .leading) {
 					Text(identity.name)
-					Text(identity.cpr)
+					Text(formatCPR(identity.cpr))
 						.font(.caption)
 				}
 			}
