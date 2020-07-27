@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "swift-argument-parser",
+        "repositoryURL": "https://github.com/apple/swift-argument-parser.git",
+        "state": {
+          "branch": null,
+          "revision": "3d79b2b5a2e5af52c14e462044702ea7728f5770",
+          "version": "0.1.0"
+        }
+      },
+      {
+        "package": "swift-nemid-keycard",
+        "repositoryURL": "https://github.com/fizker/swift-nemid-keycard.git",
+        "state": {
+          "branch": "main",
+          "revision": "6957fbb121c7665297cce458a4ab93cccd6efc64",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

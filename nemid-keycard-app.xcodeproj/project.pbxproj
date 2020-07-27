@@ -15,6 +15,8 @@
 		43D9E60E24CF7AC3003BD62E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F724CF7AC2003BD62E /* ContentView.swift */; };
 		43D9E60F24CF7AC3003BD62E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43D9E5F824CF7AC3003BD62E /* Assets.xcassets */; };
 		43D9E61024CF7AC3003BD62E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43D9E5F824CF7AC3003BD62E /* Assets.xcassets */; };
+		43D9E61B24CF7BAB003BD62E /* NemIDKeycard in Frameworks */ = {isa = PBXBuildFile; productRef = 43D9E61A24CF7BAB003BD62E /* NemIDKeycard */; };
+		43D9E61E24CF7BD3003BD62E /* NemIDKeycard in Frameworks */ = {isa = PBXBuildFile; productRef = 43D9E61D24CF7BD3003BD62E /* NemIDKeycard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D9E61B24CF7BAB003BD62E /* NemIDKeycard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D9E61E24CF7BD3003BD62E /* NemIDKeycard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +58,7 @@
 				43D9E5FF24CF7AC3003BD62E /* iOS */,
 				43D9E60624CF7AC3003BD62E /* macOS */,
 				43D9E5FE24CF7AC3003BD62E /* Products */,
+				43D9E61C24CF7BD3003BD62E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -94,6 +99,13 @@
 			path = macOS;
 			sourceTree = "<group>";
 		};
+		43D9E61C24CF7BD3003BD62E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,6 +122,9 @@
 			dependencies = (
 			);
 			name = "nemid-keycard-app (iOS)";
+			packageProductDependencies = (
+				43D9E61A24CF7BAB003BD62E /* NemIDKeycard */,
+			);
 			productName = "nemid-keycard-app (iOS)";
 			productReference = 43D9E5FD24CF7AC3003BD62E /* nemid-keycard-app.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +142,9 @@
 			dependencies = (
 			);
 			name = "nemid-keycard-app (macOS)";
+			packageProductDependencies = (
+				43D9E61D24CF7BD3003BD62E /* NemIDKeycard */,
+			);
 			productName = "nemid-keycard-app (macOS)";
 			productReference = 43D9E60524CF7AC3003BD62E /* nemid-keycard-app.app */;
 			productType = "com.apple.product-type.application";
@@ -157,6 +175,9 @@
 				Base,
 			);
 			mainGroup = 43D9E5EF24CF7AC2003BD62E;
+			packageReferences = (
+				43D9E61924CF7BAB003BD62E /* XCRemoteSwiftPackageReference "swift-nemid-keycard" */,
+			);
 			productRefGroup = 43D9E5FE24CF7AC3003BD62E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -445,6 +466,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		43D9E61924CF7BAB003BD62E /* XCRemoteSwiftPackageReference "swift-nemid-keycard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fizker/swift-nemid-keycard.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		43D9E61A24CF7BAB003BD62E /* NemIDKeycard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43D9E61924CF7BAB003BD62E /* XCRemoteSwiftPackageReference "swift-nemid-keycard" */;
+			productName = NemIDKeycard;
+		};
+		43D9E61D24CF7BD3003BD62E /* NemIDKeycard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 43D9E61924CF7BAB003BD62E /* XCRemoteSwiftPackageReference "swift-nemid-keycard" */;
+			productName = NemIDKeycard;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 43D9E5F024CF7AC2003BD62E /* Project object */;
 }
