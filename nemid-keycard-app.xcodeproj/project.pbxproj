@@ -19,6 +19,12 @@
 		43D9E61E24CF7BD3003BD62E /* NemIDKeycard in Frameworks */ = {isa = PBXBuildFile; productRef = 43D9E61D24CF7BD3003BD62E /* NemIDKeycard */; };
 		43D9E62324CF85B8003BD62E /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E61F24CF857C003BD62E /* ExampleData.swift */; };
 		43D9E62424CF85B9003BD62E /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E61F24CF857C003BD62E /* ExampleData.swift */; };
+		43D9E62624CF889B003BD62E /* IdentityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E62524CF889B003BD62E /* IdentityListView.swift */; };
+		43D9E62724CF889B003BD62E /* IdentityListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E62524CF889B003BD62E /* IdentityListView.swift */; };
+		43D9E62A24CF8966003BD62E /* IdentityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E62924CF8966003BD62E /* IdentityDetailsView.swift */; };
+		43D9E62B24CF8966003BD62E /* IdentityDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E62924CF8966003BD62E /* IdentityDetailsView.swift */; };
+		43D9E62D24CF8BFA003BD62E /* KeycardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E62C24CF8BFA003BD62E /* KeycardDetailsView.swift */; };
+		43D9E62E24CF8BFA003BD62E /* KeycardDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E62C24CF8BFA003BD62E /* KeycardDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +38,9 @@
 		43D9E60724CF7AC3003BD62E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		43D9E60824CF7AC3003BD62E /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		43D9E61F24CF857C003BD62E /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
+		43D9E62524CF889B003BD62E /* IdentityListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityListView.swift; sourceTree = "<group>"; };
+		43D9E62924CF8966003BD62E /* IdentityDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityDetailsView.swift; sourceTree = "<group>"; };
+		43D9E62C24CF8BFA003BD62E /* KeycardDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycardDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +82,7 @@
 				43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */,
 				43D9E5F724CF7AC2003BD62E /* ContentView.swift */,
 				43D9E5F824CF7AC3003BD62E /* Assets.xcassets */,
+				43D9E62824CF8957003BD62E /* Views */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -116,6 +126,16 @@
 				43D9E61F24CF857C003BD62E /* ExampleData.swift */,
 			);
 			path = DevData;
+			sourceTree = "<group>";
+		};
+		43D9E62824CF8957003BD62E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				43D9E62524CF889B003BD62E /* IdentityListView.swift */,
+				43D9E62924CF8966003BD62E /* IdentityDetailsView.swift */,
+				43D9E62C24CF8BFA003BD62E /* KeycardDetailsView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,10 +244,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D9E62D24CF8BFA003BD62E /* KeycardDetailsView.swift in Sources */,
 				43D9E60B24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				43D9E60924CF7AC3003BD62E /* KeycardApp.swift in Sources */,
+				43D9E62624CF889B003BD62E /* IdentityListView.swift in Sources */,
 				43D9E62324CF85B8003BD62E /* ExampleData.swift in Sources */,
 				43D9E60D24CF7AC3003BD62E /* ContentView.swift in Sources */,
+				43D9E62A24CF8966003BD62E /* IdentityDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,10 +258,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D9E62E24CF8BFA003BD62E /* KeycardDetailsView.swift in Sources */,
 				43D9E60C24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				43D9E60A24CF7AC3003BD62E /* KeycardApp.swift in Sources */,
+				43D9E62724CF889B003BD62E /* IdentityListView.swift in Sources */,
 				43D9E62424CF85B9003BD62E /* ExampleData.swift in Sources */,
 				43D9E60E24CF7AC3003BD62E /* ContentView.swift in Sources */,
+				43D9E62B24CF8966003BD62E /* IdentityDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

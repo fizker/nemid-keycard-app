@@ -4,8 +4,8 @@ struct ContentView: View {
 	@Binding var document: KeycardDocument
 
 	var body: some View {
-		ForEach(document.identities) {
-			Text($0.name)
+		NavigationView {
+			IdentityListView(identities: document.identities)
 		}
 	}
 }
