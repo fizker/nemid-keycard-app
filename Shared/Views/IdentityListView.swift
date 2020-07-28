@@ -3,6 +3,7 @@ import NemIDKeycard
 
 struct IdentityListView: View {
 	let identities: [Identity]
+
 	var body: some View {
 		List(identities) { identity in
 			NavigationLink(destination: IdentityDetailsView(identity: identity)) {

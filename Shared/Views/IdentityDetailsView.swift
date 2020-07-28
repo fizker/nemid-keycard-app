@@ -9,6 +9,7 @@ struct IdentityDetailsView: View {
 			VStack(alignment: .leading) {
 				Text("CPR: \(formatCPR(identity.cpr))")
 				Text("Password: \(identity.password)")
+				Divider()
 			}
 			.padding([.leading, .trailing])
 

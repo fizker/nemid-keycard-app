@@ -22,8 +22,9 @@ struct KeycardDetailsView: View {
 	var body: some View {
 		VStack {
 			TextField("Search", text: $searchValue)
+				.unredacted()
 			ScrollView {
-				LazyVGrid(columns: [GridItem(.adaptive(minimum: 100, maximum: 300))]) {
+				LazyVGrid(columns: [GridItem(.adaptive(minimum: 120, maximum: 200))]) {
 					ForEach(searchValue.isEmpty ? items : items.filter { $0.key.contains(searchValue) }) { pair in
 						HStack {
 							Text(pair.key)
@@ -39,6 +40,7 @@ struct KeycardDetailsView: View {
 				}
 			}
 		}
+			.padding()
 			.navigationTitle("Keycard \(keycard.id)")
 	}
 }
@@ -46,7 +48,14 @@ struct KeycardDetailsView: View {
 #if DEBUG
 struct KeycardDetailsView_Previews: PreviewProvider {
 	static var previews: some View {
-		KeycardDetailsView(keycard: exampleIdentities[0].keycards[0])
+		Group {
+			KeycardDetailsView(keycard: exampleIdentities[0].keycards[0])
+				.redacted(reason: .placeholder)
+			NavigationView {
+				KeycardDetailsView(keycard: placeholderKeycard)
+			}
+				.navigationViewStyle(StackNavigationViewStyle())
+		}
 	}
 }
 #endif

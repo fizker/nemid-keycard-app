@@ -8,7 +8,16 @@ struct ContentView: View {
 	@Binding var document: KeycardDocument
 
 	var body: some View {
-		IdentityListView(identities: document.identities)
+		NavigationView {
+			IdentityListView(identities: document.identities)
+
+			if let ident = document.identities.first {
+				IdentityDetailsView(identity: ident)
+			} else {
+				IdentityDetailsView(identity: placeholderIdentity)
+					.redacted(reason: .placeholder)
+			}
+		}
 	}
 }
 
