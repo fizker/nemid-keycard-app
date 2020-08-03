@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4349448F24D8B20300DFE65D /* Color+SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4349448E24D8B20300DFE65D /* Color+SystemColors.swift */; };
+		4349449024D8B20300DFE65D /* Color+SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4349448E24D8B20300DFE65D /* Color+SystemColors.swift */; };
 		43D9E60924CF7AC3003BD62E /* KeycardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */; };
 		43D9E60A24CF7AC3003BD62E /* KeycardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */; };
 		43D9E60B24CF7AC3003BD62E /* KeycardDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */; };
@@ -28,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4349448E24D8B20300DFE65D /* Color+SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+SystemColors.swift"; sourceTree = "<group>"; };
 		43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycardApp.swift; sourceTree = "<group>"; };
 		43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycardDocument.swift; sourceTree = "<group>"; };
 		43D9E5F724CF7AC2003BD62E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -83,6 +86,7 @@
 				43D9E5F724CF7AC2003BD62E /* ContentView.swift */,
 				43D9E5F824CF7AC3003BD62E /* Assets.xcassets */,
 				43D9E62824CF8957003BD62E /* Views */,
+				4349448E24D8B20300DFE65D /* Color+SystemColors.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -248,6 +252,7 @@
 				43D9E60B24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				43D9E60924CF7AC3003BD62E /* KeycardApp.swift in Sources */,
 				43D9E62624CF889B003BD62E /* IdentityListView.swift in Sources */,
+				4349448F24D8B20300DFE65D /* Color+SystemColors.swift in Sources */,
 				43D9E62324CF85B8003BD62E /* ExampleData.swift in Sources */,
 				43D9E60D24CF7AC3003BD62E /* ContentView.swift in Sources */,
 				43D9E62A24CF8966003BD62E /* IdentityDetailsView.swift in Sources */,
@@ -262,6 +267,7 @@
 				43D9E60C24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				43D9E60A24CF7AC3003BD62E /* KeycardApp.swift in Sources */,
 				43D9E62724CF889B003BD62E /* IdentityListView.swift in Sources */,
+				4349449024D8B20300DFE65D /* Color+SystemColors.swift in Sources */,
 				43D9E62424CF85B9003BD62E /* ExampleData.swift in Sources */,
 				43D9E60E24CF7AC3003BD62E /* ContentView.swift in Sources */,
 				43D9E62B24CF8966003BD62E /* IdentityDetailsView.swift in Sources */,
