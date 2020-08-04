@@ -32,7 +32,7 @@ struct KeycardValueView: View {
 			Text(key)
 			Text(value)
 		}
-			.padding([.top, .bottom], 8)
+			.padding(8)
 			.font(Font.body.monospacedDigit())
 			.lineLimit(1)
 			.onTapGesture {
@@ -43,7 +43,7 @@ struct KeycardValueView: View {
 					isClicked = false
 				}
 			}
-			.background(isClicked ? Color.background : Color.clear)
+			.background(isClicked ? Color.secondaryBackground : Color.clear)
 	}
 }
 
@@ -60,7 +60,15 @@ struct KeycardDetailsView: View {
 
 	var body: some View {
 		VStack {
-			TextField("Search", text: $searchValue)
+			HStack(spacing: 4) {
+				Image(systemName: "magnifyingglass")
+				TextField("Search", text: $searchValue)
+			}
+				.foregroundColor(Color.secondary)
+				.padding([ .top, .bottom ], 6)
+				.padding([ .leading, .trailing ], 8)
+				.background(Color.secondaryBackground)
+				.cornerRadius(8)
 				.keyboardType(.asciiCapableNumberPad)
 				.unredacted()
 			ScrollView {
@@ -74,6 +82,7 @@ struct KeycardDetailsView: View {
 						KeycardValueView(key: pair.key, value: pair.value) {
 							UIPasteboard.general.string = pair.value
 						}
+							.hoverEffect()
 					}
 				}
 			}
