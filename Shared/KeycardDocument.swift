@@ -17,19 +17,19 @@ struct KeycardDocument: FileDocument {
 
 	static var readableContentTypes: [UTType] { [.keycards] }
 
-	init(fileWrapper: FileWrapper, contentType: UTType) throws {
+	init(configuration: ReadConfiguration) throws {
 		let decoder = JSONDecoder()
-		guard let data = fileWrapper.regularFileContents
+		guard let data = configuration.file.regularFileContents
 		else {
 			throw CocoaError(.fileReadCorruptFile)
 		}
 		identities = try decoder.decode([Identity].self, from: data)
 	}
 
-	func write(to fileWrapper: inout FileWrapper, contentType: UTType) throws {
+	func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
 		let encoder = JSONEncoder()
 		encoder.outputFormatting = [ .prettyPrinted, .sortedKeys, .withoutEscapingSlashes ]
 		let data = try encoder.encode(identities)
-		fileWrapper = FileWrapper(regularFileWithContents: data)
+		return FileWrapper(regularFileWithContents: data)
 	}
 }
