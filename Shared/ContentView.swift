@@ -17,7 +17,7 @@ struct ContentView: View {
 				IdentityDetailsView(identity: placeholderIdentity)
 					.redacted(reason: .placeholder)
 			}
-		}
+		}.navigationViewStyle(DoubleColumnNavigationViewStyle())
 	}
 }
 
