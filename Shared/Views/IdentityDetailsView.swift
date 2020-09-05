@@ -2,7 +2,7 @@ import SwiftUI
 import NemIDKeycard
 
 struct IdentityDetailsView: View {
-	let identity: Identity
+	@Binding var identity: Identity
 
 	var body: some View {
 		VStack(alignment: .leading) {
@@ -28,10 +28,10 @@ struct IdentityDetailsView: View {
 struct IdentityDetailsView_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			IdentityDetailsView(identity: exampleIdentities[0])
+			IdentityDetailsView(identity: .constant(exampleIdentities[0]))
 
 			NavigationView {
-				IdentityDetailsView(identity: exampleIdentities[0])
+				IdentityDetailsView(identity: .constant(exampleIdentities[0]))
 			}
 		}
 	}
