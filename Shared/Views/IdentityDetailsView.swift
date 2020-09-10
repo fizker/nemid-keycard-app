@@ -1,6 +1,21 @@
 import SwiftUI
 import NemIDKeycard
 
+struct ErrorMessage: Identifiable {
+	let id = UUID()
+	let text: Text
+
+	init<S>(_ message: S) where S: StringProtocol {
+		self.init(verbatim: String(message))
+	}
+	init(verbatim message: String) {
+		self.text = Text(message)
+	}
+	init(_ key: LocalizedStringKey, tableName: String? = nil, bundle: Bundle? = nil, comment: StaticString? = nil) {
+		text = Text(key, tableName: tableName, bundle: bundle, comment: comment)
+	}
+}
+
 struct IdentityDetailsView: View {
 	@Binding var identity: Identity
 	@Environment(\.editMode) var editMode
@@ -8,6 +23,9 @@ struct IdentityDetailsView: View {
 	var isEditing: Bool {
 		editMode?.wrappedValue.isEditing ?? false
 	}
+
+	private var pb: UIPasteboard { UIPasteboard.general }
+	@State var errorMessage: ErrorMessage?
 
 	var body: some View {
 		VStack(alignment: .leading) {
@@ -40,9 +58,30 @@ struct IdentityDetailsView: View {
 						}
 					}
 					.highPriorityGesture(TapGesture().onEnded {
-						let keycard = Keycard(id: "foo", keys: [:])
+						guard pb.hasStrings
+						else {
+							errorMessage = ErrorMessage("No pasteboard content")
+							return
+						}
+						guard
+							let clipboardContent = pb.string,
+							let keycard = Keycard(string: clipboardContent)
+						else {
+							errorMessage = ErrorMessage("Invalid content in clipboard")
+							return
+						}
+
 						identity.keycards.append(keycard)
 					})
+					.alert(item: $errorMessage) { message in
+						Alert(
+							title: message.text,
+							dismissButton: .cancel(Text("OK")) {
+								self.errorMessage = nil
+							}
+						)
+					}
+					.disabled(!pb.hasStrings)
 					.environment(\.editMode, .constant(.inactive))
 				}
 			}
