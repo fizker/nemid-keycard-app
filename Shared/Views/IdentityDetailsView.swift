@@ -1,21 +1,6 @@
 import SwiftUI
 import NemIDKeycard
 
-struct ErrorMessage: Identifiable {
-	let id = UUID()
-	let text: Text
-
-	init<S>(_ message: S) where S: StringProtocol {
-		self.init(verbatim: String(message))
-	}
-	init(verbatim message: String) {
-		self.text = Text(message)
-	}
-	init(_ key: LocalizedStringKey, tableName: String? = nil, bundle: Bundle? = nil, comment: StaticString? = nil) {
-		text = Text(key, tableName: tableName, bundle: bundle, comment: comment)
-	}
-}
-
 struct IdentityDetailsView: View {
 	@Binding var identity: Identity
 	@Environment(\.editMode) var editMode
@@ -47,17 +32,7 @@ struct IdentityDetailsView: View {
 				}
 
 				if isEditing {
-					Button {
-						print("Add-button action should not be called because buttons are disabled in edit-mode")
-					} label: {
-						HStack {
-							Image(systemName: "plus.circle.fill")
-								.foregroundColor(.green)
-								.font(.title2)
-							Text("Add new card from clipboard")
-						}
-					}
-					.highPriorityGesture(TapGesture().onEnded {
+					AddItemButton("Add new card from clipboard") {
 						guard pb.hasStrings
 						else {
 							errorMessage = ErrorMessage("No pasteboard content")
@@ -72,7 +47,7 @@ struct IdentityDetailsView: View {
 						}
 
 						identity.keycards.append(keycard)
-					})
+					}
 					.alert(item: $errorMessage) { message in
 						Alert(
 							title: message.text,
@@ -82,7 +57,6 @@ struct IdentityDetailsView: View {
 						)
 					}
 					.disabled(!pb.hasStrings)
-					.environment(\.editMode, .constant(.inactive))
 				}
 			}
 			.listStyle(PlainListStyle())

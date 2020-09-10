@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		4349448F24D8B20300DFE65D /* Color+SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4349448E24D8B20300DFE65D /* Color+SystemColors.swift */; };
 		4349449024D8B20300DFE65D /* Color+SystemColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4349448E24D8B20300DFE65D /* Color+SystemColors.swift */; };
+		43609622250AE27B00BC7094 /* AddItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43609621250AE27B00BC7094 /* AddItemButton.swift */; };
+		43609623250AE27B00BC7094 /* AddItemButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43609621250AE27B00BC7094 /* AddItemButton.swift */; };
+		43609625250AE40E00BC7094 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43609624250AE40E00BC7094 /* ErrorMessage.swift */; };
+		43609626250AE40E00BC7094 /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43609624250AE40E00BC7094 /* ErrorMessage.swift */; };
 		43D9E60924CF7AC3003BD62E /* KeycardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */; };
 		43D9E60A24CF7AC3003BD62E /* KeycardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */; };
 		43D9E60B24CF7AC3003BD62E /* KeycardDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */; };
@@ -31,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		4349448E24D8B20300DFE65D /* Color+SystemColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+SystemColors.swift"; sourceTree = "<group>"; };
+		43609621250AE27B00BC7094 /* AddItemButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemButton.swift; sourceTree = "<group>"; };
+		43609624250AE40E00BC7094 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycardApp.swift; sourceTree = "<group>"; };
 		43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycardDocument.swift; sourceTree = "<group>"; };
 		43D9E5F724CF7AC2003BD62E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -81,12 +87,13 @@
 		43D9E5F424CF7AC2003BD62E /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				4349448E24D8B20300DFE65D /* Color+SystemColors.swift */,
+				43609624250AE40E00BC7094 /* ErrorMessage.swift */,
 				43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */,
 				43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */,
 				43D9E5F724CF7AC2003BD62E /* ContentView.swift */,
 				43D9E5F824CF7AC3003BD62E /* Assets.xcassets */,
 				43D9E62824CF8957003BD62E /* Views */,
-				4349448E24D8B20300DFE65D /* Color+SystemColors.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 		43D9E62824CF8957003BD62E /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				43609621250AE27B00BC7094 /* AddItemButton.swift */,
 				43D9E62524CF889B003BD62E /* IdentityListView.swift */,
 				43D9E62924CF8966003BD62E /* IdentityDetailsView.swift */,
 				43D9E62C24CF8BFA003BD62E /* KeycardDetailsView.swift */,
@@ -249,6 +257,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D9E62D24CF8BFA003BD62E /* KeycardDetailsView.swift in Sources */,
+				43609622250AE27B00BC7094 /* AddItemButton.swift in Sources */,
+				43609625250AE40E00BC7094 /* ErrorMessage.swift in Sources */,
 				43D9E60B24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				43D9E60924CF7AC3003BD62E /* KeycardApp.swift in Sources */,
 				43D9E62624CF889B003BD62E /* IdentityListView.swift in Sources */,
@@ -264,6 +274,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				43D9E62E24CF8BFA003BD62E /* KeycardDetailsView.swift in Sources */,
+				43609623250AE27B00BC7094 /* AddItemButton.swift in Sources */,
+				43609626250AE40E00BC7094 /* ErrorMessage.swift in Sources */,
 				43D9E60C24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				43D9E60A24CF7AC3003BD62E /* KeycardApp.swift in Sources */,
 				43D9E62724CF889B003BD62E /* IdentityListView.swift in Sources */,

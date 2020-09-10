@@ -5,16 +5,19 @@ struct IdentityListView: View {
 	@Binding var identities: [Identity]
 
 	var body: some View {
-		List(identities.indices) { index in
-			NavigationLink(destination: IdentityDetailsView(identity: $identities[index])) {
-				VStack(alignment: .leading) {
-					Text(identities[index].name)
-					Text(formatCPR(identities[index].cpr))
-						.font(.caption)
+		List {
+			ForEach(identities.indices) { index in
+				NavigationLink(destination: IdentityDetailsView(identity: $identities[index])) {
+					VStack(alignment: .leading) {
+						Text(identities[index].name)
+						Text(formatCPR(identities[index].cpr))
+							.font(.caption)
+					}
 				}
 			}
 		}
 		.navigationTitle("Identities")
+		.navigationBarItems(trailing: EditButton())
 	}
 }
 
