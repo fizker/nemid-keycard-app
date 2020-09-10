@@ -9,12 +9,12 @@ struct ContentView: View {
 
 	var body: some View {
 		NavigationView {
-			IdentityListView(identities: document.identities)
+			IdentityListView(identities: $document.identities)
 
-			if let ident = document.identities.first {
-				IdentityDetailsView(identity: ident)
+			if !document.identities.isEmpty {
+				IdentityDetailsView(identity: $document.identities[0])
 			} else {
-				IdentityDetailsView(identity: placeholderIdentity)
+				IdentityDetailsView(identity: .constant(placeholderIdentity))
 					.redacted(reason: .placeholder)
 			}
 		}.navigationViewStyle(DoubleColumnNavigationViewStyle())

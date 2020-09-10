@@ -2,14 +2,14 @@ import SwiftUI
 import NemIDKeycard
 
 struct IdentityListView: View {
-	let identities: [Identity]
+	@Binding var identities: [Identity]
 
 	var body: some View {
-		List(identities) { identity in
-			NavigationLink(destination: IdentityDetailsView(identity: identity)) {
+		List(identities.indices) { index in
+			NavigationLink(destination: IdentityDetailsView(identity: $identities[index])) {
 				VStack(alignment: .leading) {
-					Text(identity.name)
-					Text(formatCPR(identity.cpr))
+					Text(identities[index].name)
+					Text(formatCPR(identities[index].cpr))
 						.font(.caption)
 				}
 			}
@@ -22,7 +22,7 @@ struct IdentityListView: View {
 struct IdentityListView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			IdentityListView(identities: exampleIdentities)
+			IdentityListView(identities: .constant(exampleIdentities))
 		}
 	}
 }
