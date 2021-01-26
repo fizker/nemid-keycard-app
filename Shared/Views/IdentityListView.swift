@@ -17,7 +17,7 @@ struct IdentityListView: View {
 			}
 		}
 		.navigationTitle("Identities")
-		.navigationBarItems(trailing: EditButton())
+		.editButton()
 	}
 }
 

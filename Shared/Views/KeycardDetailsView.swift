@@ -8,6 +8,24 @@ struct KVPair<K: Hashable, V>: Identifiable {
 	var id: K { key }
 }
 
+private extension View {
+	func h() -> some View {
+		#if os(iOS)
+		return hoverEffect()
+		#else
+		return self
+		#endif
+	}
+
+	func stackNav() -> some View {
+		#if os(iOS)
+		return navigationViewStyle(StackNavigationViewStyle())
+		#else
+		return self
+		#endif
+	}
+}
+
 func withAnimation(
 	_ animation: @escaping (Double) -> Animation,
 	delay: TimeInterval = 0.2,
@@ -80,9 +98,9 @@ struct KeycardDetailsView: View {
 				) {
 					ForEach(searchValue.isEmpty ? items : items.filter { $0.key.contains(searchValue) }) { pair in
 						KeycardValueView(key: pair.key, value: pair.value) {
-							UIPasteboard.general.string = pair.value
+							getPasteboard().string = pair.value
 						}
-							.hoverEffect()
+							.h()
 					}
 				}
 			}
@@ -101,7 +119,7 @@ struct KeycardDetailsView_Previews: PreviewProvider {
 			NavigationView {
 				KeycardDetailsView(keycard: placeholderKeycard)
 			}
-				.navigationViewStyle(StackNavigationViewStyle())
+				.stackNav()
 		}
 	}
 }

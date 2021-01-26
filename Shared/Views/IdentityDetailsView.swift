@@ -1,15 +1,34 @@
 import SwiftUI
 import NemIDKeycard
 
+protocol Pasteboard: AnyObject {
+	var hasStrings: Bool { get }
+	var string: String? { get set }
+}
+
+extension View {
+	func editButton() -> some View {
+		#if os(iOS)
+		return navigationBarItems(trailing: EditButton())
+		#else
+		return self
+		#endif
+	}
+}
+
 struct IdentityDetailsView: View {
 	@Binding var identity: Identity
+	#if os(macOS)
+	var isEditing: Bool = false
+	#else
 	@Environment(\.editMode) var editMode
 
 	var isEditing: Bool {
 		editMode?.wrappedValue.isEditing ?? false
 	}
+	#endif
 
-	private var pb: UIPasteboard { UIPasteboard.general }
+	private var pb: Pasteboard { getPasteboard() }
 	@State var errorMessage: ErrorMessage?
 
 	var body: some View {
@@ -62,7 +81,7 @@ struct IdentityDetailsView: View {
 			.listStyle(PlainListStyle())
 		}
 		.navigationTitle(identity.name)
-		.navigationBarItems(trailing: EditButton())
+		.editButton()
 	}
 }
 
@@ -71,8 +90,10 @@ struct IdentityDetailsView_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
 			IdentityDetailsView(identity: .constant(exampleIdentities[0]))
+			#if os(iOS)
 			IdentityDetailsView(identity: .constant(exampleIdentities[0]))
 				.environment(\.editMode, .constant(.active))
+			#endif
 
 			NavigationView {
 				IdentityDetailsView(identity: .constant(exampleIdentities[0]))
