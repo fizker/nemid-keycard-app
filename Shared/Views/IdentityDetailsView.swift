@@ -19,7 +19,7 @@ extension View {
 struct IdentityDetailsView: View {
 	@Binding var identity: Identity
 	#if os(macOS)
-	var isEditing: Bool = false
+	var isEditing: Bool = true
 	#else
 	@Environment(\.editMode) var editMode
 

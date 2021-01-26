@@ -6,7 +6,11 @@ struct AddItemButton: View {
 
 	var body: some View {
 		Button {
+			#if os(macOS)
+			action()
+			#else
 			print("Add-button action should not be called because buttons are disabled in edit-mode")
+			#endif
 		} label: {
 			HStack {
 				Image(systemName: "plus.circle.fill")
