@@ -4,6 +4,23 @@ func formatCPR(_ cpr: String) -> String {
 	return "\(cpr.dropLast(4))-\(cpr.dropFirst(6))"
 }
 
+func formatKeycardID(_ id: String) -> String {
+	guard id.count == 10
+	else { return id }
+
+	let nsStr = id as NSString
+
+	let regex = try! NSRegularExpression(pattern: #"(\D|\d{3})"#, options: [])
+	let matches = regex.matches(in: id, options: [], range: NSRange(location: 0, length: nsStr.length))
+
+	guard matches.count == 4
+	else { return id }
+
+	var substrings = matches.map { nsStr.substring(with: $0.range) }
+	let first = substrings.removeFirst()
+	return "\(first)\(substrings.joined(separator: "-"))"
+}
+
 struct ContentView: View {
 	@Binding var document: KeycardDocument
 

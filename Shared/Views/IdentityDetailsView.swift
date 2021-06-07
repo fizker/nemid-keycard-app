@@ -43,7 +43,7 @@ struct IdentityDetailsView: View {
 			List {
 				ForEach(identity.keycards) { keycard in
 					NavigationLink(destination: KeycardDetailsView(keycard: keycard)) {
-						Text(keycard.id)
+						Text(formatKeycardID(keycard.id))
 					}
 				}
 				.onDelete { indexSet in

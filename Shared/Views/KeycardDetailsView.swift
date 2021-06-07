@@ -106,7 +106,7 @@ struct KeycardDetailsView: View {
 			}
 		}
 			.padding()
-			.navigationTitle("Keycard \(keycard.id)")
+			.navigationTitle("\(formatKeycardID(keycard.id))")
 	}
 }
 
