@@ -35,8 +35,8 @@ struct IdentityListView: View {
 				}
 			}
 		}
+		.listStyle(SidebarListStyle())
 		.navigationTitle("NemID")
-		.editButton()
 	}
 }
 
