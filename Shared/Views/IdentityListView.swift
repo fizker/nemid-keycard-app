@@ -1,12 +1,24 @@
 import SwiftUI
 import NemIDKeycard
 
+private struct KeycardWithIdentity: Identifiable {
+	let id: String
+	let identity: Identity
+	let keycard: Keycard
+
+	init(identity: Identity, keycard: Keycard) {
+		self.id = "\(identity.id)-\(keycard.id)"
+		self.identity = identity
+		self.keycard = keycard
+	}
+}
+
 struct IdentityListView: View {
 	@Binding var identities: [Identity]
 
 	var body: some View {
 		let keycards = identities
-			.flatMap { ident in ident.keycards.map { (identity: ident, keycard: $0) } }
+			.flatMap { ident in ident.keycards.map { KeycardWithIdentity(identity: ident, keycard: $0) } }
 			.sorted { $0.keycard.id < $1.keycard.id }
 
 		List {
@@ -22,13 +34,13 @@ struct IdentityListView: View {
 				}
 			}
 			Section(header: Text("Keycards")) {
-				ForEach(keycards.indices) { index in
-					NavigationLink(destination: KeycardDetailsView(keycard: keycards[index].keycard)) {
+				ForEach(keycards) { k in
+					NavigationLink(destination: KeycardDetailsView(keycard: k.keycard)) {
 						VStack(alignment: .leading) {
-							Text(formatKeycardID(keycards[index].keycard.id))
-							Text(keycards[index].identity.name)
+							Text(formatKeycardID(k.keycard.id))
+							Text(k.identity.name)
 							.font(.caption)
-							Text(formatCPR(keycards[index].identity.cpr))
+							Text(formatCPR(k.identity.cpr))
 							.font(.caption)
 						}
 					}
