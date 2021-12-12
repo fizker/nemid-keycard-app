@@ -79,24 +79,15 @@ struct KeycardDetailsView: View {
 
 	var body: some View {
 		VStack {
-			HStack(spacing: 4) {
-				Image(systemName: "magnifyingglass")
-				TextField("Search", text: $searchValue)
-					.focused($hasFocus)
-					.task {
-						// Set default focus
-						while !hasFocus {
-							hasFocus = true
-							try! await Task.sleep(interval: 0.05)
-						}
+			SearchField("Search", text: $searchValue)
+				.focused($hasFocus)
+				.task {
+					// Set default focus
+					while !hasFocus {
+						hasFocus = true
+						try! await Task.sleep(interval: 0.05)
 					}
-			}
-				.foregroundColor(Color.secondary)
-				.padding([ .top, .bottom ], 6)
-				.padding([ .leading, .trailing ], 8)
-				.background(Color.secondaryBackground)
-				.cornerRadius(8)
-				.keyboardType(.asciiCapableNumberPad)
+				}
 				.unredacted()
 			ScrollView {
 				LazyVGrid(
