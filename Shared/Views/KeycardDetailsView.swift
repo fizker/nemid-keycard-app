@@ -70,6 +70,7 @@ struct KeycardDetailsView: View {
 	let items: [KVPair<String, String>]
 
 	@State var searchValue = ""
+	@FocusState var hasFocus: Bool
 
 	init(keycard: Keycard) {
 		self.keycard = keycard
@@ -81,6 +82,14 @@ struct KeycardDetailsView: View {
 			HStack(spacing: 4) {
 				Image(systemName: "magnifyingglass")
 				TextField("Search", text: $searchValue)
+					.focused($hasFocus)
+					.task {
+						// Set default focus
+						while !hasFocus {
+							hasFocus = true
+							try! await Task.sleep(interval: 0.05)
+						}
+					}
 			}
 				.foregroundColor(Color.secondary)
 				.padding([ .top, .bottom ], 6)
