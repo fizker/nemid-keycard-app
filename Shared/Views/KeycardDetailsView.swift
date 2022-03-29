@@ -85,7 +85,11 @@ struct KeycardDetailsView: View {
 					// Set default focus
 					while !hasFocus {
 						hasFocus = true
-						try! await Task.sleep(interval: 0.05)
+						do {
+							try await Task.sleep(interval: 0.05)
+						} catch {
+							break
+						}
 					}
 				}
 				.unredacted()
