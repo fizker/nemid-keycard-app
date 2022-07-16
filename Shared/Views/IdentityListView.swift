@@ -18,7 +18,8 @@ struct IdentityListView: View {
 
 	var body: some View {
 		let keycards = identities
-			.flatMap { ident in ident.keycards.map { KeycardWithIdentity(identity: ident, keycard: $0) } }
+			.compactMap { x in x.nemIDCredentials.map { (x, $0) } }
+			.flatMap { (ident: Identity, cred: NemIDCredentials) in cred.keycards.map { KeycardWithIdentity(identity: ident, keycard: $0) } }
 			.sorted { $0.keycard.id < $1.keycard.id }
 
 		List {

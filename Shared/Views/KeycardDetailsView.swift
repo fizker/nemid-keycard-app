@@ -118,7 +118,7 @@ struct KeycardDetailsView: View {
 struct KeycardDetailsView_Previews: PreviewProvider {
 	static var previews: some View {
 		Group {
-			KeycardDetailsView(keycard: exampleIdentities[0].keycards[0])
+			KeycardDetailsView(keycard: exampleIdentities[0].nemIDCredentials!.keycards[0])
 				.redacted(reason: .placeholder)
 			NavigationView {
 				KeycardDetailsView(keycard: placeholderKeycard)
