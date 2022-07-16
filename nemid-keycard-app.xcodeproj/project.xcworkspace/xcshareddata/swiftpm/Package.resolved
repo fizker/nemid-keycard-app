@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/fizker/swift-nemid-keycard.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "6957fbb121c7665297cce458a4ab93cccd6efc64"
+        "revision" : "ffd91f3930fae356cd6ab36981a94d7faf0e5cf4",
+        "version" : "0.1.0"
       }
     }
   ],
