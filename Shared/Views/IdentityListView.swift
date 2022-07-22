@@ -15,6 +15,7 @@ private struct KeycardWithIdentity: Identifiable {
 
 struct IdentityListView: View {
 	@Binding var identities: [Identity]
+	@State var showCreateIdentityView = false
 
 	var body: some View {
 		let keycards = identities
@@ -50,6 +51,14 @@ struct IdentityListView: View {
 		}
 		.listStyle(SidebarListStyle())
 		.navigationTitle("NemID")
+		.toolbar {
+			Button(action: { showCreateIdentityView = true }) { Image(systemName: "plus") }
+		}
+		.sheet(isPresented: $showCreateIdentityView) {
+			CreateIdentityView {
+				identities.append($0)
+			}
+		}
 	}
 }
 
