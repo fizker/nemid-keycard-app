@@ -148,11 +148,11 @@ struct IdentityDetailsView: View {
 			Text("CPR: \(formatCPR(identity.cpr))")
 			.padding([.leading, .trailing])
 
-			Text("MitID Test Login")
-			.font(.title)
-			.padding([ .leading, .trailing, .top ])
-
 			if let credentials = identity.mitIDCredentials {
+				Text("MitID Test Login")
+				.font(.title)
+				.padding([ .leading, .trailing, .top ])
+
 				MitIDCredentialsView(credentials: Binding(get: { credentials }, set: { identity.mitIDCredentials = $0 }))
 				.padding([ .leading, .trailing ])
 
@@ -163,6 +163,10 @@ struct IdentityDetailsView: View {
 					.padding([ .leading, .trailing ])
 				}
 			} else if isEditing {
+				Text("MitID Test Login")
+				.font(.title)
+				.padding([ .leading, .trailing, .top ])
+
 				Button("Add MitID credentials") {
 					identity.mitIDCredentials = .init(username: "", password: "")
 				}
