@@ -49,5 +49,7 @@ let exampleIdentities = [
 		),
 		mitIDCredentials: .init(username: "Username", password: "pass")
 	),
+	Identity(name: "No credentials", cpr: "1234567891", nemIDCredentials: nil, mitIDCredentials: nil),
+	Identity(name: "Only MitID", cpr: "1234567892", nemIDCredentials: nil, mitIDCredentials: .init(username: "foo", password: "bar")),
 ]
 #endif

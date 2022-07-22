@@ -179,6 +179,9 @@ struct IdentityDetailsView: View {
 				.padding([ .leading, .trailing, .top ])
 
 				NemIDCredentialsView(credentials: Binding(get: { credentials }, set: { identity.nemIDCredentials = $0 }))
+			} else {
+				Spacer()
+				HStack { Spacer() }
 			}
 		}
 		.navigationTitle(identity.name)
@@ -199,6 +202,9 @@ struct IdentityDetailsView_Previews: PreviewProvider {
 			NavigationView {
 				IdentityDetailsView(identity: .constant(exampleIdentities[0]))
 			}
+
+			IdentityDetailsView(identity: .constant(exampleIdentities[1]))
+			IdentityDetailsView(identity: .constant(exampleIdentities[2]))
 		}
 	}
 }
