@@ -20,6 +20,8 @@
 		436900B427666BAE0007BA61 /* Task+sleep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436900AE2766660E0007BA61 /* Task+sleep.swift */; };
 		436900B627666BDA0007BA61 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436900B527666BDA0007BA61 /* SearchField.swift */; };
 		436900B727666BDA0007BA61 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436900B527666BDA0007BA61 /* SearchField.swift */; };
+		437DF81B288B17640024E81F /* CreateIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DF81A288B17630024E81F /* CreateIdentityView.swift */; };
+		437DF81C288B17640024E81F /* CreateIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DF81A288B17630024E81F /* CreateIdentityView.swift */; };
 		43D9E60924CF7AC3003BD62E /* KeycardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */; };
 		43D9E60A24CF7AC3003BD62E /* KeycardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */; };
 		43D9E60B24CF7AC3003BD62E /* KeycardDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */; };
@@ -50,6 +52,7 @@
 		43609624250AE40E00BC7094 /* ErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
 		436900AE2766660E0007BA61 /* Task+sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+sleep.swift"; sourceTree = "<group>"; };
 		436900B527666BDA0007BA61 /* SearchField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
+		437DF81A288B17630024E81F /* CreateIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIdentityView.swift; sourceTree = "<group>"; };
 		43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycardApp.swift; sourceTree = "<group>"; };
 		43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycardDocument.swift; sourceTree = "<group>"; };
 		43D9E5F724CF7AC2003BD62E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 				43D9E62924CF8966003BD62E /* IdentityDetailsView.swift */,
 				43D9E62C24CF8BFA003BD62E /* KeycardDetailsView.swift */,
 				436900B527666BDA0007BA61 /* SearchField.swift */,
+				437DF81A288B17630024E81F /* CreateIdentityView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -289,6 +293,7 @@
 				43609625250AE40E00BC7094 /* ErrorMessage.swift in Sources */,
 				43D9E60B24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				43D9E60924CF7AC3003BD62E /* KeycardApp.swift in Sources */,
+				437DF81B288B17640024E81F /* CreateIdentityView.swift in Sources */,
 				43D9E62624CF889B003BD62E /* IdentityListView.swift in Sources */,
 				4349448F24D8B20300DFE65D /* Color+SystemColors.swift in Sources */,
 				43D9E62324CF85B8003BD62E /* ExampleData.swift in Sources */,
@@ -307,6 +312,7 @@
 				436900B427666BAE0007BA61 /* Task+sleep.swift in Sources */,
 				43609623250AE27B00BC7094 /* AddItemButton.swift in Sources */,
 				4310F2B62567EC08006EE2D5 /* Color+SystemColors.swift in Sources */,
+				437DF81C288B17640024E81F /* CreateIdentityView.swift in Sources */,
 				436900B727666BDA0007BA61 /* SearchField.swift in Sources */,
 				43609626250AE40E00BC7094 /* ErrorMessage.swift in Sources */,
 				43D9E60C24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
@@ -570,8 +576,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/fizker/swift-nemid-keycard.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMinorVersion;
+				minimumVersion = 0.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

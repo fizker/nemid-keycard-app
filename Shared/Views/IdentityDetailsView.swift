@@ -16,8 +16,56 @@ extension View {
 	}
 }
 
-struct IdentityDetailsView: View {
-	@Binding var identity: Identity
+struct EditableLabel: View {
+	#if os(macOS)
+	private var isEditing: Bool = true
+	#else
+	@Environment(\.editMode) private var editMode
+
+	private var isEditing: Bool {
+		editMode?.wrappedValue.isEditing ?? false
+	}
+	#endif
+
+	var title: String
+	@Binding var value: String
+	var image: String
+
+	var body: some View {
+		Label(title: {
+			if isEditing {
+				TextField(title, text: $value)
+			} else {
+				Text(value)
+			}
+		}, icon: { Image(systemName: image).frame(minWidth: 20) })
+	}
+}
+
+struct MitIDCredentialsView: View {
+	@Binding var credentials: MitIDCredentials
+
+	#if os(macOS)
+	var isEditing: Bool = true
+	#else
+	@Environment(\.editMode) var editMode
+
+	var isEditing: Bool {
+		editMode?.wrappedValue.isEditing ?? false
+	}
+	#endif
+
+	var body: some View {
+		VStack(alignment: .leading) {
+			EditableLabel(title: "Username", value: $credentials.username, image: "person")
+			EditableLabel(title: "Password", value: $credentials.password, image: "key")
+		}
+	}
+}
+
+struct NemIDCredentialsView: View {
+	@Binding var credentials: NemIDCredentials
+
 	#if os(macOS)
 	var isEditing: Bool = true
 	#else
@@ -34,19 +82,19 @@ struct IdentityDetailsView: View {
 	var body: some View {
 		VStack(alignment: .leading) {
 			VStack(alignment: .leading) {
-				Text("CPR: \(formatCPR(identity.cpr))")
-				Text("Password: \(identity.password)")
+				Text("DanID ID: \(credentials.id)")
+				Text("Password: \(credentials.password)")
 			}
 			.padding([.leading, .trailing])
 
 			List {
-				ForEach(identity.keycards) { keycard in
+				ForEach(credentials.keycards) { keycard in
 					NavigationLink(destination: KeycardDetailsView(keycard: keycard)) {
 						Text(formatKeycardID(keycard.id))
 					}
 				}
 				.onDelete { indexSet in
-					identity.keycards.remove(atOffsets: indexSet)
+					credentials.keycards.remove(atOffsets: indexSet)
 				}
 
 				if isEditing {
@@ -64,7 +112,7 @@ struct IdentityDetailsView: View {
 							return
 						}
 
-						identity.keycards.append(keycard)
+						credentials.keycards.append(keycard)
 					}
 					.alert(item: $errorMessage) { message in
 						Alert(
@@ -78,6 +126,63 @@ struct IdentityDetailsView: View {
 				}
 			}
 			.listStyle(PlainListStyle())
+		}
+	}
+}
+
+struct IdentityDetailsView: View {
+	@Binding var identity: Identity
+
+	#if os(macOS)
+	var isEditing: Bool = true
+	#else
+	@Environment(\.editMode) var editMode
+
+	var isEditing: Bool {
+		editMode?.wrappedValue.isEditing ?? false
+	}
+	#endif
+
+	var body: some View {
+		VStack(alignment: .leading) {
+			Text("CPR: \(formatCPR(identity.cpr))")
+			.padding([.leading, .trailing])
+
+			if let credentials = identity.mitIDCredentials {
+				Text("MitID Test Login")
+				.font(.title)
+				.padding([ .leading, .trailing, .top ])
+
+				MitIDCredentialsView(credentials: Binding(get: { credentials }, set: { identity.mitIDCredentials = $0 }))
+				.padding([ .leading, .trailing ])
+
+				if isEditing {
+					Button("Remove MitID credentials") {
+						identity.mitIDCredentials = nil
+					}
+					.padding([ .leading, .trailing ])
+				}
+			} else if isEditing {
+				Text("MitID Test Login")
+				.font(.title)
+				.padding([ .leading, .trailing, .top ])
+
+				Button("Add MitID credentials") {
+					identity.mitIDCredentials = .init(username: "", password: "")
+				}
+				.padding([ .leading, .trailing ])
+			}
+
+			if let credentials = identity.nemIDCredentials {
+				Text("NemID")
+				.font(.title)
+				.padding([ .leading, .trailing, .top ])
+
+				NemIDCredentialsView(credentials: Binding(get: { credentials }, set: { identity.nemIDCredentials = $0 }))
+			} else {
+				Spacer()
+				HStack { Spacer() }
+			}
 		}
 		.navigationTitle(identity.name)
 		.editButton()
@@ -97,6 +202,9 @@ struct IdentityDetailsView_Previews: PreviewProvider {
 			NavigationView {
 				IdentityDetailsView(identity: .constant(exampleIdentities[0]))
 			}
+
+			IdentityDetailsView(identity: .constant(exampleIdentities[1]))
+			IdentityDetailsView(identity: .constant(exampleIdentities[2]))
 		}
 	}
 }

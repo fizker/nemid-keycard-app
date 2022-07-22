@@ -15,22 +15,27 @@ private struct KeycardWithIdentity: Identifiable {
 
 struct IdentityListView: View {
 	@Binding var identities: [Identity]
+	@State var showCreateIdentityView = false
 
 	var body: some View {
 		let keycards = identities
-			.flatMap { ident in ident.keycards.map { KeycardWithIdentity(identity: ident, keycard: $0) } }
+			.compactMap { x in x.nemIDCredentials.map { (x, $0) } }
+			.flatMap { (ident: Identity, cred: NemIDCredentials) in cred.keycards.map { KeycardWithIdentity(identity: ident, keycard: $0) } }
 			.sorted { $0.keycard.id < $1.keycard.id }
 
 		List {
 			Section(header: Text("Identities")) {
-				ForEach(identities.indices) { index in
-					NavigationLink(destination: IdentityDetailsView(identity: $identities[index])) {
+				ForEach($identities) { identity in
+					NavigationLink(destination: IdentityDetailsView(identity: identity)) {
 						VStack(alignment: .leading) {
-							Text(identities[index].name)
-							Text(formatCPR(identities[index].cpr))
+							Text(identity.wrappedValue.name)
+							Text(formatCPR(identity.wrappedValue.cpr))
 								.font(.caption)
 						}
 					}
+				}
+				.onDelete {
+					identities.remove(atOffsets: $0)
 				}
 			}
 			Section(header: Text("Keycards")) {
@@ -49,6 +54,15 @@ struct IdentityListView: View {
 		}
 		.listStyle(SidebarListStyle())
 		.navigationTitle("NemID")
+		.toolbar {
+			Button(action: { showCreateIdentityView = true }) { Image(systemName: "plus") }
+		}
+		.sheet(isPresented: $showCreateIdentityView) {
+			CreateIdentityView {
+				identities.append($0)
+				showCreateIdentityView = false
+			}
+		}
 	}
 }
 
