@@ -25,11 +25,11 @@ struct IdentityListView: View {
 
 		List {
 			Section(header: Text("Identities")) {
-				ForEach(identities.indices) { index in
-					NavigationLink(destination: IdentityDetailsView(identity: $identities[index])) {
+				ForEach($identities) { identity in
+					NavigationLink(destination: IdentityDetailsView(identity: identity)) {
 						VStack(alignment: .leading) {
-							Text(identities[index].name)
-							Text(formatCPR(identities[index].cpr))
+							Text(identity.wrappedValue.name)
+							Text(formatCPR(identity.wrappedValue.cpr))
 								.font(.caption)
 						}
 					}
