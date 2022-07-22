@@ -34,6 +34,9 @@ struct IdentityListView: View {
 						}
 					}
 				}
+				.onDelete {
+					identities.remove(atOffsets: $0)
+				}
 			}
 			Section(header: Text("Keycards")) {
 				ForEach(keycards) { k in
@@ -57,6 +60,7 @@ struct IdentityListView: View {
 		.sheet(isPresented: $showCreateIdentityView) {
 			CreateIdentityView {
 				identities.append($0)
+				showCreateIdentityView = false
 			}
 		}
 	}
