@@ -25,16 +25,16 @@ struct ContentView: View {
 	@Binding var document: KeycardDocument
 
 	var body: some View {
-		NavigationView {
+		NavigationSplitView {
 			IdentityListView(identities: $document.identities)
-
+		} detail: {
 			if !document.identities.isEmpty {
 				IdentityDetailsView(identity: $document.identities[0])
 			} else {
 				IdentityDetailsView(identity: .constant(placeholderIdentity))
 					.redacted(reason: .placeholder)
 			}
-		}.navigationViewStyle(DoubleColumnNavigationViewStyle())
+		}
 	}
 }
 
