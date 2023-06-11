@@ -8,17 +8,14 @@ func formatKeycardID(_ id: String) -> String {
 	guard id.count == 10
 	else { return id }
 
-	let nsStr = id as NSString
-
-	let regex = try! NSRegularExpression(pattern: #"(\D|\d{3})"#, options: [])
-	let matches = regex.matches(in: id, options: [], range: NSRange(location: 0, length: nsStr.length))
+	let regex = /\D|\d{3}/
+	let matches = id.matches(of: regex)
 
 	guard matches.count == 4
 	else { return id }
 
-	var substrings = matches.map { nsStr.substring(with: $0.range) }
-	let first = substrings.removeFirst()
-	return "\(first)\(substrings.joined(separator: "-"))"
+	let substrings = matches.map(\.output)
+	return "\(substrings[0])\(substrings[1...].joined(separator: "-"))"
 }
 
 struct ContentView: View {
