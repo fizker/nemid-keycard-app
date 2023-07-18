@@ -22,6 +22,8 @@
 		436900B727666BDA0007BA61 /* SearchField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 436900B527666BDA0007BA61 /* SearchField.swift */; };
 		437DF81B288B17640024E81F /* CreateIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DF81A288B17630024E81F /* CreateIdentityView.swift */; };
 		437DF81C288B17640024E81F /* CreateIdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437DF81A288B17630024E81F /* CreateIdentityView.swift */; };
+		437E7DC22A668BA3006635C5 /* CPRGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E7DC12A668BA3006635C5 /* CPRGeneratorView.swift */; };
+		437E7DC32A668BA3006635C5 /* CPRGeneratorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 437E7DC12A668BA3006635C5 /* CPRGeneratorView.swift */; };
 		43D9E60924CF7AC3003BD62E /* KeycardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */; };
 		43D9E60A24CF7AC3003BD62E /* KeycardApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */; };
 		43D9E60B24CF7AC3003BD62E /* KeycardDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */; };
@@ -53,6 +55,7 @@
 		436900AE2766660E0007BA61 /* Task+sleep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+sleep.swift"; sourceTree = "<group>"; };
 		436900B527666BDA0007BA61 /* SearchField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchField.swift; sourceTree = "<group>"; };
 		437DF81A288B17630024E81F /* CreateIdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateIdentityView.swift; sourceTree = "<group>"; };
+		437E7DC12A668BA3006635C5 /* CPRGeneratorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CPRGeneratorView.swift; sourceTree = "<group>"; };
 		43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycardApp.swift; sourceTree = "<group>"; };
 		43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeycardDocument.swift; sourceTree = "<group>"; };
 		43D9E5F724CF7AC2003BD62E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -112,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				436900AD276665F60007BA61 /* Extensions */,
+				437E7DC12A668BA3006635C5 /* CPRGeneratorView.swift */,
 				43609624250AE40E00BC7094 /* ErrorMessage.swift */,
 				43D9E5F524CF7AC2003BD62E /* KeycardApp.swift */,
 				43D9E5F624CF7AC2003BD62E /* KeycardDocument.swift */,
@@ -288,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				437E7DC22A668BA3006635C5 /* CPRGeneratorView.swift in Sources */,
 				43D9E62D24CF8BFA003BD62E /* KeycardDetailsView.swift in Sources */,
 				43609622250AE27B00BC7094 /* AddItemButton.swift in Sources */,
 				436900AF2766660E0007BA61 /* Task+sleep.swift in Sources */,
@@ -318,6 +323,7 @@
 				43609626250AE40E00BC7094 /* ErrorMessage.swift in Sources */,
 				43D9E60C24CF7AC3003BD62E /* KeycardDocument.swift in Sources */,
 				430715B525C019BD004CDD36 /* iOS shims.swift in Sources */,
+				437E7DC32A668BA3006635C5 /* CPRGeneratorView.swift in Sources */,
 				43D9E60A24CF7AC3003BD62E /* KeycardApp.swift in Sources */,
 				43D9E62724CF889B003BD62E /* IdentityListView.swift in Sources */,
 				43D9E62424CF85B9003BD62E /* ExampleData.swift in Sources */,

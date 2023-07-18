@@ -51,6 +51,12 @@ struct IdentityListView: View {
 					}
 				}
 			}
+
+			Section(header: Text("Utilities")) {
+				NavigationLink(destination: CPRGeneratorView()) {
+					Text("Make valid CPR number")
+				}
+			}
 		}
 		.listStyle(SidebarListStyle())
 		.navigationTitle("NemID")
