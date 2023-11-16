@@ -75,7 +75,7 @@ struct IdentityListView: View {
 #if DEBUG
 struct IdentityListView_Previews: PreviewProvider {
 	static var previews: some View {
-		NavigationView {
+		NavigationStack {
 			IdentityListView(identities: .constant(exampleIdentities))
 		}
 	}

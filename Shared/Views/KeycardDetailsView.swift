@@ -16,14 +16,6 @@ private extension View {
 		return self
 		#endif
 	}
-
-	func stackNav() -> some View {
-		#if os(iOS)
-		return navigationViewStyle(StackNavigationViewStyle())
-		#else
-		return self
-		#endif
-	}
 }
 
 func withAnimation(
@@ -120,10 +112,9 @@ struct KeycardDetailsView_Previews: PreviewProvider {
 		Group {
 			KeycardDetailsView(keycard: exampleIdentities[0].nemIDCredentials!.keycards[0])
 				.redacted(reason: .placeholder)
-			NavigationView {
+			NavigationStack {
 				KeycardDetailsView(keycard: placeholderKeycard)
 			}
-				.stackNav()
 		}
 	}
 }

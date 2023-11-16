@@ -199,7 +199,7 @@ struct IdentityDetailsView_Previews: PreviewProvider {
 				.environment(\.editMode, .constant(.active))
 			#endif
 
-			NavigationView {
+			NavigationStack {
 				IdentityDetailsView(identity: .constant(exampleIdentities[0]))
 			}
 
