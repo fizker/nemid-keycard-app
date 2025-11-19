@@ -19,6 +19,13 @@ extension View {
 struct EditableLabel: View {
 	#if os(macOS)
 	private var isEditing: Bool = true
+
+	init(title: String, value: Binding<String>, image: String) {
+		self.title = title
+		self._value = value
+		self.image = image
+	}
+
 	#else
 	@Environment(\.editMode) private var editMode
 
